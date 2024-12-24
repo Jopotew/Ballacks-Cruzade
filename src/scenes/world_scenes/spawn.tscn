@@ -1,0 +1,19 @@
+[gd_scene load_steps=3 format=3 uid="uid://vujiwkkwt7mp"]
+
+[ext_resource type="Script" path="res://src/scripts/world_scripts/spawn.gd" id="1_lsjpu"]
+[ext_resource type="PackedScene" uid="uid://bjuxd3vpl8x2o" path="res://src/scenes/character_scenes/player.tscn" id="2_x0m1r"]
+
+[node name="Game" type="Node2D"]
+
+[node name="World" type="Node2D" parent="."]
+
+[node name="Marker2D" type="Marker2D" parent="World"]
+position = Vector2(300, 230)
+scale = Vector2(0.00524109, 0.0925679)
+
+[node name="Select" type="Control" parent="." node_paths=PackedStringArray("world")]
+layout_mode = 3
+anchors_preset = 0
+script = ExtResource("1_lsjpu")
+world = NodePath("../World")
+player_scene = ExtResource("2_x0m1r")
