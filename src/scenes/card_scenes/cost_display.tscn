@@ -1,0 +1,18 @@
+[gd_scene load_steps=2 format=3 uid="uid://cgb8rodqnmma"]
+
+[ext_resource type="Texture2D" uid="uid://cwvg7pwo1tohr" path="res://src/assets/card_assets/cost_display.png" id="1_7sw3b"]
+
+[node name="CostDisplay" type="Node2D"]
+metadata/_edit_lock_ = true
+
+[node name="CostDisplaySprite" type="Sprite2D" parent="."]
+texture = ExtResource("1_7sw3b")
+offset = Vector2(14.395, -5.76)
+metadata/_edit_lock_ = true
+
+[node name="CostLabel" type="Label" parent="."]
+offset_left = -4.0
+offset_top = -24.0
+offset_right = 36.0
+offset_bottom = -1.0
+metadata/_edit_lock_ = true

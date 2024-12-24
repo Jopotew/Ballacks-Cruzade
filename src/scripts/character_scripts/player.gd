@@ -8,3 +8,4 @@ func load_stats(character_stats : CharacterStats) -> void:
 
 func _ready():
     print("Hello")
+    
