@@ -14,3 +14,7 @@ config/name="Ballack Cruzade"
 run/main_scene="res://src/scenes/world_scenes/spawn.tscn"
 config/features=PackedStringArray("4.3", "Forward Plus")
 config/icon="res://icon.svg"
+
+[rendering]
+
+renderer/rendering_method="gl_compatibility"

@@ -1,0 +1,25 @@
+[gd_scene load_steps=2 format=3 uid="uid://dfisv1jy05xnm"]
+
+[ext_resource type="Script" path="res://src/scripts/card_scripts/deck_display.gd" id="1_vq37h"]
+
+[node name="deck_display" type="Node2D"]
+script = ExtResource("1_vq37h")
+
+[node name="Button" type="Button" parent="."]
+offset_right = 8.0
+offset_bottom = 8.0
+text = "Create Card "
+
+[node name="Button2" type="Button" parent="."]
+offset_top = 32.0
+offset_right = 111.0
+offset_bottom = 63.0
+text = "Create card 2"
+
+[node name="CanvasLayer" type="CanvasLayer" parent="."]
+
+[node name="SpawnPoint" type="Node2D" parent="CanvasLayer"]
+position = Vector2(208, 328)
+
+[connection signal="pressed" from="Button" to="." method="_on_button_pressed"]
+[connection signal="pressed" from="Button2" to="." method="_on_button_2_pressed"]

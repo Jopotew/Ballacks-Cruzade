@@ -1,0 +1,5 @@
+[gd_scene format=3 uid="uid://cmd4d07pi034k"]
+
+[node name="CardImage" type="Node2D"]
+
+[node name="CardTypeSprite" type="Sprite2D" parent="."]
