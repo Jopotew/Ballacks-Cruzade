@@ -1,0 +1,13 @@
+[gd_scene load_steps=3 format=3 uid="uid://0t2kakqe4x43"]
+
+[ext_resource type="PackedScene" uid="uid://bed66msopnu4" path="res://src/scenes/card_scenes/card_model.tscn" id="1_cjsal"]
+[ext_resource type="Texture2D" uid="uid://b8j3oeawbn2u1" path="res://src/assets/card_assets/knife.png" id="2_ybs0y"]
+
+[node name="BasicStab" type="Node2D"]
+position = Vector2(1, 2)
+
+[node name="CardSprite" type="Sprite2D" parent="."]
+position = Vector2(9, -27)
+texture = ExtResource("2_ybs0y")
+
+[node name="Card" parent="." instance=ExtResource("1_cjsal")]

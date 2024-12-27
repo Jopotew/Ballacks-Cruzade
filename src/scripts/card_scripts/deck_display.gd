@@ -1,6 +1,6 @@
 extends Node2D
 
-@onready var card_scene : PackedScene = preload("res://src/scenes/card_scenes/card.tscn")
+@onready var card_scene : PackedScene = preload("res://src/scenes/card_scenes/card_model.tscn")
 @onready var spawn_point : Node2D = $CanvasLayer/SpawnPoint
 
 
@@ -15,7 +15,7 @@ func _process(delta: float) -> void:
 
 
 func _on_button_2_pressed() -> void:
-    var card : Card = card_scene.instantiate() 
+    var card = card_scene.instantiate() 
     spawn_point.add_child(card)
     card.set_card_values(3, "CARD NAME", "CARD DESCRIPTION")
     card.visible = true

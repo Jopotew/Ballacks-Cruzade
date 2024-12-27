@@ -1,17 +1,17 @@
 [gd_scene load_steps=6 format=3 uid="uid://bed66msopnu4"]
 
-[ext_resource type="PackedScene" uid="uid://cgb8rodqnmma" path="res://src/scenes/card_scenes/cost_display.tscn" id="1_60gmu"]
-[ext_resource type="Script" path="res://src/scripts/card_scripts/card.gd" id="1_asj01"]
-[ext_resource type="Texture2D" uid="uid://qbugx1s3053t" path="res://src/assets/card_assets/card.png" id="2_xqisf"]
-[ext_resource type="Texture2D" uid="uid://b8j3oeawbn2u1" path="res://src/assets/card_assets/knife.png" id="4_2i6or"]
-[ext_resource type="PackedScene" uid="uid://cmd4d07pi034k" path="res://src/scenes/card_scenes/card_image.tscn" id="4_25h2m"]
+[ext_resource type="Script" path="res://src/scripts/card_scripts/card.gd" id="1_ixfvr"]
+[ext_resource type="Texture2D" uid="uid://qbugx1s3053t" path="res://src/assets/card_assets/card.png" id="2_na125"]
+[ext_resource type="PackedScene" uid="uid://cgb8rodqnmma" path="res://src/scenes/card_scenes/cost_display.tscn" id="3_d7l5x"]
+[ext_resource type="PackedScene" uid="uid://cmd4d07pi034k" path="res://src/scenes/card_scenes/card_image.tscn" id="4_5dnmn"]
+[ext_resource type="Texture2D" uid="uid://b8j3oeawbn2u1" path="res://src/assets/card_assets/knife.png" id="5_e87tc"]
 
 [node name="Card" type="Node2D"]
-script = ExtResource("1_asj01")
+script = ExtResource("1_ixfvr")
 
 [node name="CardSprite" type="Sprite2D" parent="."]
 scale = Vector2(0.468941, 0.468941)
-texture = ExtResource("2_xqisf")
+texture = ExtResource("2_na125")
 
 [node name="CardName" type="Node2D" parent="."]
 
@@ -26,7 +26,7 @@ horizontal_alignment = 1
 vertical_alignment = 1
 justification_flags = 171
 
-[node name="CostDisplay" parent="." instance=ExtResource("1_60gmu")]
+[node name="CostDisplay" parent="." instance=ExtResource("3_d7l5x")]
 position = Vector2(52, -72)
 scale = Vector2(1.3748, 1.3748)
 
@@ -39,11 +39,11 @@ text = "3"
 horizontal_alignment = 1
 vertical_alignment = 1
 
-[node name="CardImage" parent="." instance=ExtResource("4_25h2m")]
+[node name="CardImage" parent="." instance=ExtResource("4_5dnmn")]
 
 [node name="CardTypeSprite" parent="CardImage" index="0"]
 position = Vector2(9, -27)
-texture = ExtResource("4_2i6or")
+texture = ExtResource("5_e87tc")
 
 [node name="DescriptionLabel" type="Label" parent="."]
 offset_left = -44.0

@@ -5,7 +5,7 @@ class_name Card
 @export var card_name : String
 @export var card_description : String
 @export var card_cost : int 
-@export var card_image : Node2D
+@export var card_image : Sprite2D
 
 
 
