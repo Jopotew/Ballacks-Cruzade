@@ -1,0 +1,16 @@
+[gd_resource type="Resource" script_class="CardRes" load_steps=4 format=3 uid="uid://dmcp3685d2n25"]
+
+[ext_resource type="Resource" uid="uid://b8ahv0fipd85k" path="res://src/resources/effects_res/guard.tres" id="1_nmfuw"]
+[ext_resource type="Script" path="res://src/models/effects_model.gd" id="2_5si63"]
+[ext_resource type="Script" path="res://src/models/card_res_model.gd" id="2_tn8bb"]
+
+[resource]
+script = ExtResource("2_tn8bb")
+type = "Defense"
+name = "Protection"
+description = "Guards"
+damage = 0
+healing = 0
+cost = 3
+element = ""
+effects = Array[ExtResource("2_5si63")]([ExtResource("1_nmfuw")])

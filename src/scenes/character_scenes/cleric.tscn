@@ -1,0 +1,20 @@
+[gd_scene load_steps=5 format=3 uid="uid://bjuxd3vpl8x2o"]
+
+[ext_resource type="Script" path="res://src/scripts/character_scripts/player.gd" id="1_knqbj"]
+[ext_resource type="Resource" uid="uid://bco6w6pivx0dw" path="res://src/resources/player_res/cleric.tres" id="2_kprp8"]
+[ext_resource type="Texture2D" uid="uid://behdjgvsnnoyy" path="res://icon.svg" id="3_d53aw"]
+
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_50c2t"]
+
+[node name="Cleric" type="CharacterBody2D"]
+script = ExtResource("1_knqbj")
+stats = ExtResource("2_kprp8")
+
+[node name="PlayerSprite" type="Sprite2D" parent="."]
+position = Vector2(1, -1)
+scale = Vector2(0.421065, 0.417337)
+texture = ExtResource("3_d53aw")
+
+[node name="CollisionShape" type="CollisionShape2D" parent="."]
+scale = Vector2(3.16424, -3.21621)
+shape = SubResource("CapsuleShape2D_50c2t")

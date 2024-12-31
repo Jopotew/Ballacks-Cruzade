@@ -1,0 +1,16 @@
+[gd_resource type="Resource" script_class="CardRes" load_steps=4 format=3 uid="uid://50t344lkb8tr"]
+
+[ext_resource type="Resource" uid="uid://bp2u8psrracxu" path="res://src/resources/effects_res/bleeding.tres" id="1_fp8rr"]
+[ext_resource type="Script" path="res://src/models/effects_model.gd" id="1_r07e4"]
+[ext_resource type="Script" path="res://src/models/card_res_model.gd" id="1_sbrxm"]
+
+[resource]
+script = ExtResource("1_sbrxm")
+type = "Physical"
+name = "Stab"
+description = "Normal Stab"
+damage = 3
+healing = 0
+cost = 2
+element = "Normal"
+effects = Array[ExtResource("1_r07e4")]([ExtResource("1_fp8rr")])

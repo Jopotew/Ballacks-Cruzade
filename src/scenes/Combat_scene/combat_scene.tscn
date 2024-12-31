@@ -1,0 +1,41 @@
+[gd_scene load_steps=5 format=3 uid="uid://bqpdwm0pclekq"]
+
+[ext_resource type="Script" path="res://src/scripts/combat_service/combat_scene.gd" id="1_d4rk1"]
+[ext_resource type="PackedScene" uid="uid://dfisv1jy05xnm" path="res://src/scenes/card_scenes/deck_display.tscn" id="1_ka4b1"]
+[ext_resource type="Script" path="res://src/scripts/combat_service/combat_manager.gd" id="2_cipkl"]
+[ext_resource type="Texture2D" uid="uid://cbefej827mxmt" path="res://src/assets/bg/bg.png" id="4_bmhm6"]
+
+[node name="CombatScene" type="Node"]
+script = ExtResource("1_d4rk1")
+
+[node name="CombatManager" type="Node" parent="."]
+script = ExtResource("2_cipkl")
+
+[node name="PlayerPlace" type="TextureRect" parent="."]
+top_level = true
+offset_left = 94.0
+offset_top = 16.0
+offset_right = 222.0
+offset_bottom = 144.0
+stretch_mode = 3
+
+[node name="EnemySprite" type="Node2D" parent="."]
+position = Vector2(782, 114)
+
+[node name="EnemySprite" type="Sprite2D" parent="EnemySprite"]
+
+[node name="DeckDisplay" parent="." instance=ExtResource("1_ka4b1")]
+offset_left = -2.0
+offset_top = 421.0
+offset_right = -2.0
+offset_bottom = 421.0
+
+[node name="BG" type="CanvasLayer" parent="."]
+layer = 0
+visible = false
+
+[node name="TextureRect" type="TextureRect" parent="BG"]
+offset_right = 1799.0
+offset_bottom = 1005.0
+scale = Vector2(0.648644, 0.648644)
+texture = ExtResource("4_bmhm6")

@@ -1,0 +1,11 @@
+[gd_resource type="Resource" script_class="EffectRes" load_steps=2 format=3 uid="uid://b8ahv0fipd85k"]
+
+[ext_resource type="Script" path="res://src/models/effects_model.gd" id="1_du08a"]
+
+[resource]
+script = ExtResource("1_du08a")
+effect_type = "buff"
+target = "self"
+duration = 3
+damage_per_turn = 0
+stat_changes = {}
