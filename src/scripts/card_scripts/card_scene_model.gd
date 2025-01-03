@@ -12,13 +12,13 @@ var card_name : String
 var card_description : String
 var card_cost : int 
 var card_image : Sprite2D
-var card_size := Vector2(150, 230)
+const CARD_SIZE := Vector2(150, 230)
 
 
 func _ready() -> void:
-    GlobalData.card_size = card_size
+    GlobalData.card_size = CARD_SIZE
     set_card_values(card_cost, card_name, card_description)
-    visible = false
+    visible = true
     
 func  set_card_values(_cost:int, _name:String, _des:String):
     card_cost = _cost
@@ -29,4 +29,6 @@ func  set_card_values(_cost:int, _name:String, _des:String):
     card_name_label.set_text(_name)
     description_label.set_text(_des)
     card_sprite.set_texture(sprite)
+    
+    
     

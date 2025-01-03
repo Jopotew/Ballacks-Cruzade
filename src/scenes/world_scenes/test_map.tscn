@@ -8,6 +8,7 @@
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_s7rgh"]
 
 [node name="TestMap" type="Node2D"]
+position = Vector2(3, 0)
 script = ExtResource("1_fur85")
 combat_scene = ExtResource("2_vhn3q")
 

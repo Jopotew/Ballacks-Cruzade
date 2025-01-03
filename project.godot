@@ -22,7 +22,9 @@ CombatService="*res://src/scripts/global_scripts/combat_service.gd"
 
 [display]
 
+window/size/viewport_height=700
 window/size/resizable=false
+window/size/borderless=true
 
 [rendering]
 

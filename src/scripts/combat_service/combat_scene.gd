@@ -30,5 +30,5 @@ func start_combat() -> void:
 ## Preparar las cartas para el combate
 func prepare_cards_for_combat() -> void:
     # Aquí es donde puedes poner la lógica para usar el inventario del jugador
-    var deck_display = $DeckDisplay
+    var deck_display = $HandDisplay/Hand
     deck_display.initialize_inventory(p_card_deck) 

@@ -1,0 +1,26 @@
+[gd_scene load_steps=4 format=3 uid="uid://dfisv1jy05xnm"]
+
+[ext_resource type="Script" path="res://src/scripts/card_scripts/deck_display.gd" id="1_6ys77"]
+
+[sub_resource type="Curve" id="Curve_dk2w8"]
+_data = [Vector2(0, 0), 0.0, 6.0, 0, 0, Vector2(0.5, 1), 0.0, 0.0, 0, 0, Vector2(1, 0), -6.0, 0.0, 0, 0]
+point_count = 3
+
+[sub_resource type="Curve" id="Curve_r07u1"]
+min_value = -1.0
+_data = [Vector2(0, -1), 0.0, 0.0, 0, 0, Vector2(0.5, 0.5), 0.0, 0.0, 0, 0, Vector2(1, 1), 6.0, 0.0, 0, 0]
+point_count = 3
+
+[node name="HandDisplay" type="Control"]
+layout_mode = 3
+anchors_preset = 0
+
+[node name="Hand" type="ColorRect" parent="."]
+custom_minimum_size = Vector2(800, 230)
+layout_mode = 0
+offset_right = 800.0
+offset_bottom = 140.0
+color = Color(0.67451, 0.980392, 0.352941, 0.0862745)
+script = ExtResource("1_6ys77")
+hand_curve = SubResource("Curve_dk2w8")
+rotation_curve = SubResource("Curve_r07u1")

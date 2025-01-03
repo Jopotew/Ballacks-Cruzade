@@ -1,15 +1,21 @@
 ## DeckDisplay.gd
+class_name HandDisplay
+extends ColorRect
 
-extends Control
 
-@onready var spawn_point : Node2D = $CanvasLayer/SpawnPoint
 @export var card_inventory : Array[PackedScene] = []  # El inventario de cartas del jugador
-
 var live_hand : Array[PackedScene] = []
-var separation = 20
 var card_size = GlobalData.card_size
 const max_hand_size = 5
 var hand_size = 0
+@export var hand_curve: Curve
+@export var rotation_curve: Curve
+@export var max_rotation_degrees := 10
+@export var x_sep := 50
+@export var y_min := 50
+@export var y_max := -50
+
+
 
 ## Conectar la señal de inicio del combate
 func _ready() -> void:
@@ -17,77 +23,89 @@ func _ready() -> void:
     CombatService.connect("combat_started",_on_combat_started)
     
 
+func _on_combat_started():
+    print("COMBAT STARTED")
 
-## Método para inicializar el inventario
+func draw() -> void:
+    var index = randi_range(0, card_inventory.size())
+    if hand_size < max_hand_size:
+        var cards = card_inventory[index]
+        var card_node = cards.instantiate()  # Nodo instanciado
+        live_hand.append({
+            "scene": cards,  
+            "node": card_node 
+        })
+        add_child(card_node)
+        hand_size += 1
+
+        print("Live Hand : ", live_hand)
+        print("Node Added : ", card_node.name)
+
+    update_cards()
+
+
+
+func discard(card_to_remove : Node2D) -> void:
+    if not card_to_remove or not is_instance_valid(card_to_remove):
+        return
+        
+    for i in range(live_hand.size()):
+        if live_hand[i].name == card_to_remove.name:
+            live_hand.remove_at(i)
+            break
+            
+    card_to_remove.queue_free()
+    hand_size -= 1
+    update_cards()
+
+
+func update_cards() -> void:
+    var cards := get_child_count()
+    var all_cards_size := Card.SIZE.x * cards + x_sep * (cards - 1)
+    var final_x_sep = x_sep
+    
+    if all_cards_size > size.x:
+        final_x_sep = (size.x - Card.SIZE.x * cards) / (cards - 1)
+        all_cards_size = size.x
+
+    var offset := (size.x - all_cards_size) / 2
+    
+    for i in cards:
+        var card := get_child(i)
+        var y_multiplier := hand_curve.sample(1.0 / (cards-1) * i)
+        var rot_multiplier := rotation_curve.sample(1.0 / (cards-1) * i)
+        
+        if cards == 1:
+            y_multiplier = 0.0
+            rot_multiplier = 0.0
+        
+        var final_x: float = offset + Card.SIZE.x * i + final_x_sep * i
+        var final_y: float = y_min + y_max * y_multiplier
+        
+        card.position = Vector2(final_x, final_y)
+        card.rotation_degrees = max_rotation_degrees * rot_multiplier
+
+
 func initialize_inventory(inventory: Array[PackedScene]) -> void:
     card_inventory = inventory
     set_hand()
-    organize_cards()
+    update_cards()
     
     
-
-## Método para mostrar las cartas en la escena
-func set_cards_visible() -> void:
-    for cards in live_hand:
-        var card = cards.instantiate()
-        add_child(card)
-        card.visible = true
-        
-        
-func discard(card_used) -> void:
-    for card in live_hand:
-        if card.card_name == card_used.card_name:
-            live_hand.erase(card)
-            card.queue_free()
-            break  
-    organize_cards()
-
-            
 
 func set_hand():
-    var card_index = 0
     while hand_size < max_hand_size:
-        var card = card_inventory[card_index]
-        live_hand.append(card)
+        var index = randi_range(0,card_inventory.size()-1)
+        var cards = card_inventory[index]
+        var card = cards.instantiate()
+        live_hand.append(cards)
+        add_child(card)
         hand_size += 1
-        card_index = (card_index + 1) % card_inventory.size()  
-
-        
-func update_cards() -> void:
-    for child in get_children():
-        if child is Control:  # Verifica si el nodo es un control para evitar errores
-            child.queue_free()
+        print("Live Hand : ",live_hand)
+    update_cards()
     
-    # Reorganizar las cartas en la mano
-    organize_cards()
 
 
-
-func _on_combat_started() -> void:
-    print("¡El combate ha comenzado!")
-   
-func organize_cards() -> void:
-    var rect_width = 800
-    var rect_height = 230
-    var card_width = card_size.x  
-    var card_height = card_size.y  
-    var max_cards_in_rect = min(live_hand.size(), 5)  
-
-    var total_separation = (max_cards_in_rect - 1) * separation
-    var total_card_width = max_cards_in_rect * card_width + total_separation
-    
-    var start_x = (rect_width - total_card_width) / 2
-
-    var i = 0
-    for card_node in get_children():
-        if card_node is Control and i < live_hand.size():
-            var pos_x = start_x + i * (card_width + separation)
-            var pos_y = (rect_height - card_height) / 2 
-            card_node.position = Vector2(pos_x, pos_y)
-            card_node.visible = true
-            i += 1
-
- 
 func add_card_to_hand(new_card: PackedScene) -> void:
     if hand_size < max_hand_size:
         live_hand.append(new_card)  
@@ -95,8 +113,7 @@ func add_card_to_hand(new_card: PackedScene) -> void:
         
         var card_instance = new_card.instantiate()
         add_child(card_instance)
-    
-        organize_cards()
+        update_cards()
 
 
 func _on_combat_manager_turn_ended() -> void:
