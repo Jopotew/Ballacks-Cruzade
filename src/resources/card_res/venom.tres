@@ -1,7 +1,7 @@
 [gd_resource type="Resource" script_class="CardRes" load_steps=3 format=3 uid="uid://ci52jkoerbvoe"]
 
 [ext_resource type="Script" path="res://src/models/effects_model.gd" id="1_4s5yi"]
-[ext_resource type="Script" path="res://src/models/card_res_model.gd" id="2_1buns"]
+[ext_resource type="Script" path="res://src/models/card_action_model.gd" id="2_1buns"]
 
 [resource]
 script = ExtResource("2_1buns")

@@ -2,19 +2,18 @@
 class_name HandDisplay
 extends ColorRect
 
-
-@export var card_inventory : Array[PackedScene] = []  # El inventario de cartas del jugador
-var live_hand : Array[PackedScene] = []
-var card_size = GlobalData.card_size
-const max_hand_size = 5
-var hand_size = 0
 @export var hand_curve: Curve
 @export var rotation_curve: Curve
 @export var max_rotation_degrees := 10
 @export var x_sep := 50
 @export var y_min := 50
 @export var y_max := -50
+@export var card_inventory : Array[PackedScene] = []  # El inventario de cartas del jugador
 
+var live_hand : Array[PackedScene] = []
+var card_size = GlobalData.card_size
+const max_hand_size = 5
+var hand_size = 0
 
 
 ## Conectar la señal de inicio del combate

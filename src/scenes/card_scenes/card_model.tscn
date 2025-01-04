@@ -27,6 +27,7 @@ scale = Vector2(2.9, 1.9)
 expand_mode = 2
 
 [node name="DescriptionLabel" type="Label" parent="."]
+layout_mode = 0
 offset_left = 16.1634
 offset_top = 122.058
 offset_right = 183.163
@@ -40,6 +41,7 @@ autowrap_mode = 1
 clip_text = true
 
 [node name="CardNameLabel" type="Label" parent="."]
+layout_mode = 0
 offset_left = 11.9938
 offset_top = -1.30338
 offset_right = 105.994
@@ -53,6 +55,7 @@ vertical_alignment = 1
 justification_flags = 3
 
 [node name="CostLabel" type="Label" parent="."]
+layout_mode = 0
 offset_left = 122.498
 offset_top = 8.25467
 offset_right = 162.498
@@ -64,6 +67,7 @@ horizontal_alignment = 1
 vertical_alignment = 1
 
 [node name="DmgLabel" type="Label" parent="."]
+layout_mode = 0
 offset_left = 4.14949
 offset_top = 200.066
 offset_right = 44.1495

@@ -2,7 +2,7 @@
 
 [ext_resource type="Resource" uid="uid://bp2u8psrracxu" path="res://src/resources/effects_res/bleeding.tres" id="1_fp8rr"]
 [ext_resource type="Script" path="res://src/models/effects_model.gd" id="1_r07e4"]
-[ext_resource type="Script" path="res://src/models/card_res_model.gd" id="1_sbrxm"]
+[ext_resource type="Script" path="res://src/models/card_action_model.gd" id="1_sbrxm"]
 
 [resource]
 script = ExtResource("1_sbrxm")

@@ -24,3 +24,5 @@ color = Color(0.67451, 0.980392, 0.352941, 0.0862745)
 script = ExtResource("1_6ys77")
 hand_curve = SubResource("Curve_dk2w8")
 rotation_curve = SubResource("Curve_r07u1")
+x_sep = 60
+y_min = 0
