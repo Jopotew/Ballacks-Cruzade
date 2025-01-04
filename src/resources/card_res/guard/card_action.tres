@@ -1,0 +1,12 @@
+[gd_resource type="Resource" script_class="CardAction" load_steps=4 format=3 uid="uid://dd23rtrng3s5f"]
+
+[ext_resource type="Script" path="res://src/models/effects_model.gd" id="1_0lkj6"]
+[ext_resource type="Script" path="res://src/models/card_action_model.gd" id="2_1bp8m"]
+[ext_resource type="Resource" uid="uid://b8ahv0fipd85k" path="res://src/resources/effects_res/guard.tres" id="2_tu7dh"]
+
+[resource]
+script = ExtResource("2_1bp8m")
+damage = 0
+healing = 2
+element = "Normal"
+effects = Array[ExtResource("1_0lkj6")]([ExtResource("2_tu7dh")])

@@ -1,0 +1,12 @@
+[gd_resource type="Resource" script_class="CardText" load_steps=3 format=3 uid="uid://pae0f08o7g6o"]
+
+[ext_resource type="Script" path="res://src/models/card_text_model.gd" id="1_d75wb"]
+[ext_resource type="Texture2D" uid="uid://d4m2d4in8caq8" path="res://src/assets/card_assets/heal.png" id="2_w5msm"]
+
+[resource]
+script = ExtResource("1_d75wb")
+type = "Spell"
+name = "Heal"
+description = "Heals the player"
+sprite = ExtResource("2_w5msm")
+cost = 3

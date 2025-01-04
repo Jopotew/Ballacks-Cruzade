@@ -4,8 +4,8 @@
 
 [resource]
 script = ExtResource("1_wda6t")
-effect_type = ""
-target = ""
-duration = 0
-damage_per_turn = 0
+effect_type = "Debuff"
+target = "enemy"
+duration = 5
+damage_per_turn = 5
 stat_changes = {}

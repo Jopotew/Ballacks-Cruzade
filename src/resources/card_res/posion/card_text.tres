@@ -1,0 +1,12 @@
+[gd_resource type="Resource" script_class="CardText" load_steps=3 format=3 uid="uid://b10ls8g7t107s"]
+
+[ext_resource type="Script" path="res://src/models/card_text_model.gd" id="1_d75wb"]
+[ext_resource type="Texture2D" uid="uid://5omgvib4pwu4" path="res://src/assets/card_assets/fireball_spell.png" id="2_43kuf"]
+
+[resource]
+script = ExtResource("1_d75wb")
+type = "Spell"
+name = "Poison"
+description = "Throws the enemy a lethal venom"
+sprite = ExtResource("2_43kuf")
+cost = 3

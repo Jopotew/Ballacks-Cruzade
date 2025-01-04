@@ -1,0 +1,12 @@
+[gd_resource type="Resource" script_class="CardText" load_steps=3 format=3 uid="uid://bf3jcbatutw12"]
+
+[ext_resource type="Script" path="res://src/models/card_text_model.gd" id="1_d75wb"]
+[ext_resource type="Texture2D" uid="uid://djctu10i0ydo5" path="res://src/assets/card_assets/shield.png" id="2_agg4v"]
+
+[resource]
+script = ExtResource("1_d75wb")
+type = "Defensive"
+name = "Guard"
+description = "Guards the player. Healing and reducing dmg"
+sprite = ExtResource("2_agg4v")
+cost = 3
