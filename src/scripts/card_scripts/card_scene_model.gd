@@ -32,3 +32,8 @@ func  set_card_values(_cost:int, _name:String, _des:String):
     
     
     
+func _get_drag_data(position):
+    var loan
+    return loan
+    
+    
