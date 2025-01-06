@@ -1,5 +1,5 @@
 extends Node
-
+class_name CombatManager
 
 signal turn_ended
 signal turn_started
@@ -12,6 +12,8 @@ func _ready() -> void:
     pass # Replace with function body.
 
 
-# Called every frame. 'delta' is the elapsed time since the previous frame.
-func _process(delta: float) -> void:
-    pass
+func _on_card_dropped(card_data: Dictionary) -> void:
+    var action = card_data["action"]
+    var text = card_data["text"]
+    print("Card dropped: ", action.name, text.name)
+    # Aquí puedes añadir la lógica para usar la carta, como iniciar un ataque, etc.

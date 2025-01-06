@@ -3,7 +3,7 @@
 [ext_resource type="Script" path="res://src/scripts/card_scripts/deck_display.gd" id="1_6ys77"]
 
 [sub_resource type="Curve" id="Curve_dk2w8"]
-_data = [Vector2(0, 0), 0.0, 0.0, 0, 0, Vector2(0.5, 1), 0.0, 0.0, 0, 0, Vector2(1, 0), 0.0, 0.0, 0, 0]
+_data = [Vector2(0, 0), 0.0, 6.0, 0, 0, Vector2(0.5, 1), 0.0, 0.0, 0, 0, Vector2(1, 0), -6.0, 0.0, 0, 0]
 point_count = 3
 
 [sub_resource type="Curve" id="Curve_r07u1"]
@@ -24,5 +24,7 @@ color = Color(0.67451, 0.980392, 0.352941, 0.0862745)
 script = ExtResource("1_6ys77")
 hand_curve = SubResource("Curve_dk2w8")
 rotation_curve = SubResource("Curve_r07u1")
-x_sep = 150
-y_min = 1
+max_rotation_degrees = null
+x_sep = null
+y_min = null
+y_max = null

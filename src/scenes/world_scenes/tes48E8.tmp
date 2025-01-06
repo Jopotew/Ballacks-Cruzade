@@ -1,0 +1,37 @@
+[gd_scene load_steps=6 format=3 uid="uid://cefxoa13r50xm"]
+
+[ext_resource type="Script" path="res://src/scripts/world_scripts/testmap/testmap.gd" id="1_fur85"]
+[ext_resource type="PackedScene" uid="uid://bjuxd3vpl8x2o" path="res://src/scenes/character_scenes/cleric.tscn" id="1_l8er7"]
+[ext_resource type="PackedScene" uid="uid://bqpdwm0pclekq" path="res://src/scenes/Combat_scene/combat_scene.tscn" id="2_vhn3q"]
+[ext_resource type="Texture2D" uid="uid://cagcmhgxwuikx" path="res://src/assets/card_assets/book cover.png" id="3_75bdg"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_s7rgh"]
+
+[node name="TestMap" type="Node2D"]
+position = Vector2(3, 0)
+script = ExtResource("1_fur85")
+combat_scene = ExtResource("2_vhn3q")
+
+[node name="Cleric" parent="." instance=ExtResource("1_l8er7")]
+position = Vector2(596, 247)
+
+[node name="TestCol" type="Node2D" parent="."]
+position = Vector2(962, 205)
+
+[node name="Area2D" type="Area2D" parent="TestCol"]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="TestCol/Area2D"]
+scale = Vector2(12.5597, 12.5597)
+shape = SubResource("RectangleShape2D_s7rgh")
+
+[node name="testsprite" type="TextureRect" parent="TestCol"]
+offset_left = -328.0
+offset_top = -183.0
+offset_right = -228.0
+offset_bottom = -83.0
+scale = Vector2(6.78517, 3.49992)
+texture = ExtResource("3_75bdg")
+
+[connection signal="body_entered" from="TestCol/Area2D" to="." method="_on_area_2d_body_entered"]
+
+[editable path="Cleric"]

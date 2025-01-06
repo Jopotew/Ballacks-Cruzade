@@ -4,21 +4,15 @@ class_name Player
 @export var stats : CharacterStats
 
 @onready var player_sprite: Sprite2D = $PlayerSprite
-@onready var stab_card = preload("res://src/scenes/card_scenes/cards/dmg_cards/stab.tscn")
-@onready var heal_card = preload("res://src/scenes/card_scenes/cards/buff_debuff_cards/heal.tscn")
-@onready var guard_card = preload("res://src/scenes/card_scenes/cards/def_cards/guard.tscn")
 
-var card_deck : Array[PackedScene] = []
+var card_deck : Array[String] = ["Heal", "Guard", "Stab", "Poison"]
 
 ## Velocidad de movimiento
 @export var move_speed : float = 200.0
 
 
 func _ready() -> void:
-    card_deck.append(stab_card)
-    card_deck.append(heal_card)
-    card_deck.append(guard_card)
-    
+    pass
     
 ## Método que se llama cada frame para mover al jugador
 func _process(delta: float) -> void:

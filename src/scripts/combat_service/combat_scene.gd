@@ -1,17 +1,21 @@
 #combat_scene.gd
 extends Node
+class_name CombatScene
 
 var p_stats 
-var p_card_deck
+var p_card_deck : Array[String]
 var p_sprite
 
 
 @onready var player_place: TextureRect = $PlayerPlace
+@onready var combat_manager: CombatManager = $CombatManager
+@onready var drop_area: DropArea = $DropArea
 
 func _ready() -> void:
     load_player()
     start_combat()
-        
+    drop_area.connect("card_dropped", Callable(combat_manager, "_on_card_dropped"))
+
         
     
 func load_player():
