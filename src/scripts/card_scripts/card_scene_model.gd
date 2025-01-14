@@ -1,5 +1,5 @@
 extends Control
-class_name CardModel
+class_name Card
 
 #~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~#
 @export var card_action_data : Resource 
@@ -13,6 +13,7 @@ class_name CardModel
 @onready var card_sprite: TextureRect = $CardSprite
 @onready var card_type : Label = $TypeLabel
 
+signal card_dropped(card_data)
 
 var card_damage : int
 var card_healing : int
@@ -21,7 +22,7 @@ var card_element : String
 
 var is_being_dragged : bool = false
 var drag_offset := Vector2()
-
+var previous_pos 
 
 const CARD_SIZE := Vector2(150, 230)
 
@@ -36,16 +37,11 @@ func _ready() -> void:
     set_card_model()
     visible = true
     
-func _process(delta: float) -> void:
-    if is_being_dragged:
-        var mouse_position = get_viewport().get_mouse_position()
-        global_position = mouse_position + drag_offset
-    
     
 func set_res(_action : Resource, _text: Resource):
     card_action_data = _action
     card_text_data = _text
-    
+    print("Carta configurada con acción:", _action, "y texto:", _text)
 
     
 func  set_card_model():
@@ -64,23 +60,50 @@ func set_card_action():
     
     
     
-func _gui_input(event: InputEvent) -> void:
-    if event is InputEventMouseButton and event.button_index == 1:
-        if event.pressed:
-            # Iniciar el arrastre si el clic es válido
-            is_being_dragged = true
-            drag_offset = global_position - event.global_position
-        else:
-            # Terminar el arrastre cuando se suelta el botón
-            if is_being_dragged:
-                emit_signal("card_dropped", self)  # Señal personalizada si es necesario
-            is_being_dragged = false
-                
-func _get_drag_data(position: Vector2) -> Variant:
-    return {"action": card_action_data, "text": card_text_data}
 
-# Lógica para moverse mientras se arrastra (te permite mover el nodo)
-func _input(event: InputEvent) -> void:
-    if event is InputEventMouseMotion and is_being_dragged:
-        # Si estamos arrastrando, mueve el nodo con el ratón
-        self.position += event.relative
+    
+    #
+#func _get_drag_data(at_position: Vector2) -> Variant:
+    #var data : Dictionary 
+    #data["action"] = card_action_data
+    #return data
+    #
+#
+#func _gui_input(event: InputEvent) -> void:
+    #if event is InputEventMouseButton:
+        #if event.button_index == MOUSE_BUTTON_LEFT and event.pressed:
+            #is_being_dragged = true
+            #previous_pos = global_position  # Guardamos la posición antes de mover
+            #drag_offset = global_position - event.global_position
+        #elif event.button_index == MOUSE_BUTTON_LEFT and not event.pressed:
+            #if is_being_dragged:
+                #is_being_dragged = false
+                #emit_signal("card_dropped", _get_drag_data(global_position))  # Emitimos la señal al soltar
+            #global_position = previous_pos  # Volvemos a la posición original si no fue un "drop" válido
+#
+#
+#func return_to_previous_position() -> void:
+    #global_position = previous_pos
+ #
+    #
+    #
+    
+    
+#func _gui_input(event: InputEvent) -> void:
+    #if event is InputEventMouseButton and event.button_index == 1:
+        #if event.pressed:
+            #is_being_dragged = true
+            #drag_offset = global_position - event.global_position
+        #else:
+            #if is_being_dragged:
+                #emit_signal("card_dropped", self)  
+            #is_being_dragged = false
+                #
+#func _get_drag_data(position: Vector2) -> Variant:
+    #return {"action": card_action_data, "text": card_text_data}
+#
+## Lógica para moverse mientras se arrastra (te permite mover el nodo)
+#func _input(event: InputEvent) -> void:
+    #if event is InputEventMouseMotion and is_being_dragged:
+        ## Si estamos arrastrando, mueve el nodo con el ratón
+        #self.position += event.relative

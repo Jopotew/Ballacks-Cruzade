@@ -16,6 +16,7 @@ func _ready() -> void:
     start_combat()
     drop_area.connect("card_dropped", Callable(combat_manager, "_on_card_dropped"))
 
+
         
     
 func load_player():
@@ -27,7 +28,7 @@ func load_player():
 ## Método para iniciar el combate
 func start_combat() -> void:
     # Aquí se inicia la lógica del combate
-    print("Iniciando combate...")
+    
     CombatService.emit_signal("combat_started")
     prepare_cards_for_combat()
 
@@ -36,3 +37,9 @@ func prepare_cards_for_combat() -> void:
     # Aquí es donde puedes poner la lógica para usar el inventario del jugador
     var deck_display = $HandDisplay/Hand
     deck_display.initialize_inventory(p_card_deck) 
+
+
+
+
+func raycast_card_check():
+    pass

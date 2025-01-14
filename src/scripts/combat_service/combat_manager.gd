@@ -12,8 +12,7 @@ func _ready() -> void:
     pass # Replace with function body.
 
 
-func _on_card_dropped(card_data: Dictionary) -> void:
-    var action = card_data["action"]
-    var text = card_data["text"]
-    print("Card dropped: ", action.name, text.name)
-    # Aquí puedes añadir la lógica para usar la carta, como iniciar un ataque, etc.
+
+
+func _on_drop_area_card_dropped(card_data: Variant) -> void:
+    print("Card dropped in combat scene with data:", card_data)

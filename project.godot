@@ -18,7 +18,8 @@ config/icon="res://icon.svg"
 [autoload]
 
 GlobalData="*res://src/scripts/global_scripts/global_data.gd"
-CombatService="*res://src/scripts/global_scripts/combat_service.gd"
+CombatService="*res://src/scripts/global_scripts/global_combat_service.gd"
+GlobalSignals="*res://src/scripts/global_scripts/global_signals.gd"
 
 [display]
 
